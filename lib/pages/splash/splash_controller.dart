@@ -7,9 +7,10 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     Future.delayed(Duration(milliseconds: 2000), () {
-      AppStorage.isWelcomeDone()
-          ? Get.offNamed(AppRoutes.webview)
-          : Get.offNamed(AppRoutes.welcome);
+      Get.offNamed(AppRoutes.webview);
+      // AppStorage.isWelcomeDone()
+      //     ? Get.offNamed(AppRoutes.webview)
+      //     : Get.offNamed(AppRoutes.welcome);
     });
   }
 }

@@ -1,5 +1,7 @@
+import 'package:a2finance/common/app_colors.dart';
 import 'package:a2finance/common/app_fonts.dart';
 import 'package:a2finance/common/app_fontsizes.dart';
+import 'package:a2finance/common/assets.dart';
 import 'package:a2finance/common/common_ui.dart';
 import 'package:a2finance/pages/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
@@ -25,14 +27,11 @@ class SplashView extends StatelessWidget {
                 width: 90,
                 height: 90,
                 decoration: BoxDecoration(
-                  color: Colors.blue.shade50,
+                  color: AppColors.c4E0F8F,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
-                  Icons.account_balance_outlined,
-                  color: Colors.blue.shade800,
-                  size: 48,
-                ),
+                child: 
+                Image.asset(Assets.pngHrBookLogo),
               ),
 
               const SizedBox(height: 24),
@@ -44,11 +43,11 @@ class SplashView extends StatelessWidget {
                   curve: Curves.easeInOut,
                 ),
                 child: Text(
-                  "Finance Solution",
+                  "HR BOOK",
                   style: CommonUi.customTextStyle(
                     fontFamily: AppFonts.medium,
                     fontSize: AppFontSizes.font30,
-                    color: Colors.blue.shade900,
+                    color: AppColors.c4E0F8F,
                   ),
                 ),
               ),
