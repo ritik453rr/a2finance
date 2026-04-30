@@ -23,8 +23,9 @@ class AppWebview extends GetView<AppWebviewController> {
         body: Stack(
           children: [
             InAppWebView(
-              initialUrlRequest:
-                  URLRequest(url: WebUri(controller.url)),
+              initialUrlRequest: URLRequest(
+                url: WebUri(controller.hrmsA2Finance),
+              ),
 
               initialSettings: InAppWebViewSettings(
                 javaScriptEnabled: true,
@@ -37,21 +38,23 @@ class AppWebview extends GetView<AppWebviewController> {
               },
 
               onLoadStart: (_, __) {
-                controller.isLoading.value = true;
+                // controller.isLoading.value = true;
               },
 
               onLoadStop: (_, __) {
-                controller.isLoading.value = false;
+                // controller.isLoading.value = false;
               },
 
               onReceivedError: (_, __, error) {
-                controller.isLoading.value = false;
+                // controller.isLoading.value = false;
                 controller.errorMessage.value = error.description ?? "Error";
               },
 
               /// 🔥 LOCATION PERMISSION HANDLER
-              androidOnGeolocationPermissionsShowPrompt:
-                  (controller, origin) async {
+              androidOnGeolocationPermissionsShowPrompt: (
+                controller,
+                origin,
+              ) async {
                 return GeolocationPermissionShowPromptResponse(
                   origin: origin,
                   allow: true,
@@ -60,15 +63,16 @@ class AppWebview extends GetView<AppWebviewController> {
               },
             ),
 
-            /// 🔄 Loader
-            Obx(() => controller.isLoading.value
-                ? Container(
-                    color: Colors.black.withOpacity(0.1),
-                    child: const Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  )
-                : const SizedBox.shrink()),
+            // /// 🔄 Loader
+            // Obx(
+            //   () =>
+            //       controller.isLoading.value
+            //           ? Container(
+            //             color: Colors.black.withOpacity(0.1),
+            //             child: const Center(child: CircularProgressIndicator()),
+            //           )
+            //           : const SizedBox.shrink(),
+            // ),
 
             /// ❌ Error UI
             Obx(() {
@@ -84,7 +88,7 @@ class AppWebview extends GetView<AppWebviewController> {
                       ElevatedButton(
                         onPressed: controller.reloadPage,
                         child: const Text("Retry"),
-                      )
+                      ),
                     ],
                   ),
                 );

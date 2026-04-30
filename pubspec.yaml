@@ -36,7 +36,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.7.2
   widget_and_text_animator: ^1.1.5
-  webview_flutter: ^4.13.0
   get_storage: ^2.1.1
   flutter_inappwebview: ^6.1.5
   permission_handler: ^12.0.1
